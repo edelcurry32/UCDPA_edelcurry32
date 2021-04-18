@@ -4,16 +4,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-data_2019 = pd.read_csv(r"2019.csv")
-data_2018 = pd.read_csv(r"2018.csv")
-concat_data= pd.concat([data_2019, data_2018])
-
-left = data_2019.set_index(['Country or region', 'Score'])
-
-right = data_2018.set_index(['Country or region', 'Score'])
-
-join_data = left.join(right, lsuffix='_2019', rsuffix='_2018')
+data = pd.read_csv(r"2019.csv")
 
 #print (data.columns)
+
+seq_list = [1,2,3,4,5]
+print(list(reversed(seq_list)))
+
+x = data['Country or region'].head(10)
+h = data['Score'].head(10)
+c = ["blue"]
+plt.bar(x,h,width =0.6, linewidth =20, edgecolor = "yellow", color = "blue")
+plt.xlabel("Country")
+plt.ylabel("Score")
+plt.title("2019 Happiest Countries")
 plt.show()
+
 
